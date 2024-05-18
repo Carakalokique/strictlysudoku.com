@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Play an easy and free Sudoku puzzle online</title>
+    <link rel="stylesheet" href="../style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The easy version of our modern free online Sudoku puzzle. Easy Sudoku tips explained!"
+    />
+    <meta name="sudoku-difficulty" content="easy" />
+  </head>
+  <style>
+    /* Most important layout rules repeated here to improve SEO */
+    .container.game-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .container {
+      width: 100%;
+      padding: 0 max(5px, calc(50vw - 600px));
+      box-sizing: border-box;
+    }
+    .sudoku-board {
+      overflow: hidden;
+      width: 700px;
+      aspect-ratio: 1 / 1;
+    }
+    .keyboard {
+      width: 400px;
+    }
+    @media screen and (max-width: 1200px) {
+      .sudoku-board {
+        width: 65%;
+      }
+      .sudoku-board .cell {
+        font-size: min(2.2em, 6vw);
+      }
+      .keyboard {
+        width: 33%;
+        font-size: 0.8em;
+      }
+    }
+    @media screen and (max-width: 700px) {
+      .sudoku-board {
+        width: 100%;
+      }
+
+      .keyboard {
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <nav class="container">
+      <div class="text-content">
+        <div class="difficulty-mobile">
+          Difficulty:
+          <select id="difficulty-select">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="evil">Evil</option>
+          </select>
+        </div>
+        <div class="difficulty-desktop">
+          Difficulty:
+          <a id="url-easy" href="../sudoku-easy">Easy</a>
+          <a id="url-medium" href="../sudoku-medium">Medium</a>
+          <a id="url-hard" href="../sudoku-hard">Hard</a>
+          <a id="url-evil" href="../sudoku-evil">Evil</a>
+        </div>
+        <div>Mistakes <span id="mistakes"></span></div>
+        <div>
+          <span id="time-elapsed"></span>
+        </div>
+      </div>
+    </nav>
+    <div class="container game-container">
+      <div id="sudoku-board" class="sudoku-board"></div>
+      <div class="keyboard">
+        <div class="type">
+          <div class="button button-left selected" id="mode-button-normal">
+            Pen
+          </div>
+          <div class="button button-right" id="mode-button-note">Pencil</div>
+        </div>
+        <div class="keys" id="keyboard-keys">
+          <div class="button">1</div>
+          <div class="button">2</div>
+          <div class="button">3</div>
+          <div class="button">4</div>
+          <div class="button">5</div>
+          <div class="button">6</div>
+          <div class="button">7</div>
+          <div class="button">8</div>
+          <div class="button">9</div>
+          <div class="button x">X</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="text-content">
+        <h1>Strictly Sudoku - Easy Sudoku for beginners with tips</h1>
+        <h2>How to play</h2>
+        <p>
+          The sudoku grid consists of eighty-one squares in a nine by nine grid.
+          To solve the sudoku, each square in the grid must contain a number
+          between one and nine, with the following conditions:
+        </p>
+        <ul>
+          <li>
+            Each row of nine cells must contain each of the numbers from 1 to 9
+            once and only once.
+          </li>
+          <li>
+            Each column of nine cells must contain each of the numbers from 1 to
+            9 once and only once.
+          </li>
+          <li>
+            Each of the nine 3 by 3 boxes of nine cells must contain each of the
+            numbers from 1 to 9 once and only once.
+          </li>
+        </ul>
+        <p>
+          The sudoku starts with a partially filled grid and you must complete
+          the grid while following the rules above. If you complete the grid,
+          you've solved the sudoku.
+        </p>
+        <p>Each sudoku on this site has one and only one unique solution.</p>
+        <h3>Write notes with a pencil</h3>
+        <p>
+          Some people like to write small pencil numbers in each cell to
+          indicate what numbers are possible in that cell. If you fill all the
+          cells with their possible values, the answer may quickly become
+          apparent. Particularly if some cells only have one possible value.
+          Such cells are called an "Open Single"
+        </p>
+        <img src="example.png" alt="sudoku board" width="271" height="271" />
+      </div>
+    </div>
+    <div class="overlay" id="popup">
+      <div class="window">
+        <p class="title" id="popup-title">Congrats</p>
+        <p class="message" id="popup-message"></p>
+        <br />
+        <p>
+          <button id="play-again-button">Play another Sudoku</button>
+        </p>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div>
+          <h3>URLS 1</h3>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+        </div>
+        <div>
+          <h3>URLS 2</h3>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+        </div>
+        <div>
+          <h3>URLS 3</h3>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script async defer src="../main.js" type="module"></script>
+</html>
