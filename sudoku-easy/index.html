@@ -108,29 +108,71 @@
           Strictly Sudoku - Easy Sudoku for beginners with tips and tricks
         </h1>
         <p>
-          There are a number of techniques for solving sudoku. They vary in
-          complexity and ease of application but all have one thing in common -
-          they aim to narrow the range of possible values in one or more of the
-          cells in the sudoku. If, by applying the rules of sudoku, we can
-          reduce the possible values in an empty cell to just one, we can enter
-          that value in the cell, confident in the knowledge that it is correct.
+          The most common technique to solve an easy Sudoku is the Open Single
+          technique. If you're new to sudoku, take a look at this technique
+          below. You’ll need to master it before moving on to more difficult
+          puzzles..
         </p>
-
+        <h2>Open Single (A technique for beginners)</h2>
         <p>
-          The most common of these techniques are described on these pages. If
-          you're new to sudoku, take a look at the beginners techniques then try
-          some of our easy sudoku. More techniques for advanced players will be
-          presented here soon.
+          Sometimes there's a square in the sudoku where only one number is
+          allowed. Consider the highlighted cell in this sudoku grid below; what
+          numbers could it contain? Under the rules of sudoku, no row, column or
+          block may contain the same number twice.
         </p>
-        <h3>Write notes with a pencil</h3>
+        <img
+          src="../assets/strictlysudoku-opensingle-easy1.gif"
+          alt="Open Single Sudoku technique example for beginners"
+          width="271"
+          height="271"
+        />
         <p>
-          Some people like to write small pencil numbers in each cell to
-          indicate what numbers are possible in that cell. If you fill all the
-          cells with their possible values, the answer may quickly become
-          apparent. Particularly if some cells only have one possible value.
-          Such cells are called an "Open Single"
+          The block containing the highlighted cell already contains the numbers
+          2, 4, 7 and 9 so none of these numbers are allowed in the cell.
+          Similarly, the column containing the cell contains the numbers 1, 2,
+          4, 6, 7 and 9 so these numbers aren't allowed either, and the row
+          containing the cell has the numbers 2, 3, 5, 7 and 9 so these numbers
+          are also banned from the cell.
         </p>
-        <img src="example.png" alt="sudoku board" width="271" height="271" />
+        <p>
+          With all these banned numbers, there's only one number that is allowed
+          in the cell and that's the number 8. So we can place an 8 in the cell.
+          This is the open single.
+        </p>
+        <p>
+          Now look further down the same column to the cell highlighted in the
+          next image. What numbers could this cell contain? Look at the box, row
+          and column containing this cell and you'll notice that the numbers 1,
+          2, 3, 4, 6, 7, 8, and 9 are all banned. So the only number allowed in
+          this cell is 5.
+        </p>
+        <img
+          src="../assets/strictlysudoku-opensingle-easy2.gif"
+          alt="Open Single Sudoku technique example for beginners"
+          width="271"
+          height="271"
+        />
+        <p>
+          Having placed the 5, there's only one cell left in this column, so
+          that's easy - it must be a 3 because that is the only number not yet
+          used in the column.
+        </p>
+        <img
+          src="../assets/strictlysudoku-opensingle-easy3.gif"
+          alt="Open Single Sudoku technique example for beginners"
+          width="271"
+          height="271"
+        />
+        <p>
+          Looking around the cells in this sudoku, you'll find more open singles
+          in the cells highlighted, and after you've completed these cells more
+          open singles will become available.
+        </p>
+        <p>
+          This is a fairly easy sudoku and can be completed using only the open
+          single technique, although sometimes the open singles may be hard to
+          find.
+        </p>
       </div>
     </div>
     <div class="overlay" id="popup">
