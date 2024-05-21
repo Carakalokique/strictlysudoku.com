@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Free Sudoku hard puzzles online</title>
+    <link rel="stylesheet" href="../style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The hard version of our free online Sudoku puzzle. Hard Sudoku strategy explained!"
+    />
+    <meta name="sudoku-difficulty" content="easy" />
+  </head>
+  <style>
+    /* Most important layout rules repeated here to improve SEO */
+    .container.game-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .container {
+      width: 100%;
+      padding: 0 max(5px, calc(50vw - 600px));
+      box-sizing: border-box;
+    }
+    .sudoku-board {
+      overflow: hidden;
+      width: 700px;
+      aspect-ratio: 1 / 1;
+    }
+    .keyboard {
+      width: 400px;
+    }
+    @media screen and (max-width: 1200px) {
+      .sudoku-board {
+        width: 65%;
+      }
+      .sudoku-board .cell {
+        font-size: min(2.2em, 6vw);
+      }
+      .keyboard {
+        width: 33%;
+        font-size: 0.8em;
+      }
+    }
+    @media screen and (max-width: 700px) {
+      .sudoku-board {
+        width: 100%;
+      }
+
+      .keyboard {
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <nav class="container">
+      <div class="text-content">
+        <div class="difficulty-mobile">
+          Difficulty:
+          <select id="difficulty-select">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="evil">Evil</option>
+          </select>
+        </div>
+        <div class="difficulty-desktop">
+          Difficulty:
+          <a id="url-easy" href="../sudoku-easy">Easy</a>
+          <a id="url-medium" href="../sudoku-medium">Medium</a>
+          <a id="url-hard" href="../sudoku-hard">Hard</a>
+          <a id="url-evil" href="../sudoku-evil">Evil</a>
+        </div>
+        <div>Mistakes <span id="mistakes"></span></div>
+        <div>
+          <span id="time-elapsed"></span>
+        </div>
+      </div>
+    </nav>
+    <div class="container game-container">
+      <div id="sudoku-board" class="sudoku-board"></div>
+      <div class="keyboard">
+        <div class="type">
+          <div class="button button-left selected" id="mode-button-normal">
+            Pen
+          </div>
+          <div class="button button-right" id="mode-button-note">Pencil</div>
+        </div>
+        <div class="keys" id="keyboard-keys">
+          <div class="button">1</div>
+          <div class="button">2</div>
+          <div class="button">3</div>
+          <div class="button">4</div>
+          <div class="button">5</div>
+          <div class="button">6</div>
+          <div class="button">7</div>
+          <div class="button">8</div>
+          <div class="button">9</div>
+          <div class="button x">X</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="text-content">
+        <h1>Strictly Sudoku - Hard Sudoku with strategy explained</h1>
+        <p>
+          The Open Singles and Hidden Singles techniques can only get you so far
+          when solving hard puzzles. You'll need to think about various number
+          possibilities for various cells. That's where the next technique comes
+          in. Once you have found all the singles, use this technique to move
+          forward on the puzzle.
+        </p>
+        <h2>Row/Column & Block Interactions</h2>
+        <p>Let's take a look at the following grid.</p>
+        <img
+          src="../assets/strictlysudoku-row-column-hard1.gif"
+          alt="Row/Column & Block Interactions Sudoku technique example"
+          width="271"
+          height="271"
+        />
+        <p>
+          I've already filled in some of the cells using the
+          <a href="https://strictlysudoku.com/sudoku-easy">open single</a> and
+          <a href="https://strictlysudoku.com/sudoku-easy">hidden single</a>
+          techniques. But now there are no more singles so I need another
+          technique.
+        </p>
+        <p>
+          I've used the pencil tool to list all the possible values for each
+          cell according to the rules of Sudoku. This will help me find the more
+          complex interactions between the rows, columns and blocks in the
+          sudoku.
+        </p>
+        <p>
+          Take a look at the second block down on the left side. Which cells in
+          this block can contain the number 8? There's only two such cells, and
+          they're both in the leftmost column of the sudoku. One of these two
+          cells must contain an 8 because there must be exactly one 8 in the
+          block.
+        </p>
+        <img
+          src="../assets/strictlysudoku-row-column-hard2.gif"
+          alt="Row/Column & Block Interactions Sudoku technique example"
+          width="271"
+          height="271"
+        />
+
+        <p>
+          But there must also be exactly one 8 in the leftmost column and since
+          both of these cells are in the leftmost column, whichever contains the
+          8 that will be the 8 in this column. As a result, no other cells in
+          the leftmost column may contain the number 8. So we can remove the 8
+          from other cells in this column.
+        </p>
+        <p>This is the basic interaction between blocks and rows or columns.</p>
+        <img
+          src="../assets/strictlysudoku-row-column-hard3.gif"
+          alt="Row/Column & Block Interactions Sudoku technique example"
+          width="271"
+          height="271"
+        />
+        <p>
+          Having removed the 8 as a possible value in the other cells in the
+          leftmost column, we have revealed a hidden single in the second row
+          down. The highlighted cell must contain an 8.
+        </p>
+        <p>
+          You can enter the 8 and then continue to complete the sudoku - all you
+          need to complete it are open singles and hidden singles. But I'm going
+          to use the sudoku to illustrate some more interactions between rows or
+          columns and blocks.
+        </p>
+
+        <p>
+          The example above shows how a restriction in the possible cells for a
+          value in a block (in this case the 8) can help us remove some
+          possibilities from a column. The same can also happen between a block
+          and a row.
+        </p>
+        <p>
+          Further, a restriction in a row or column may help us to limit the
+          possibilities in an intersecting block.
+        </p>
+
+        <p>
+          Look at the second row down in the sudoku. The only two cells in this
+          row that may contain the number 1 are both in the top left block.
+          Since one of these two cells must contain a 1, no other cells in the
+          block may contain a 1. So we can eliminate 1 as a possibility in all
+          other cells in this block.
+        </p>
+        <img
+          src="../assets/strictlysudoku-row-column-hard4.gif"
+          alt="Row/Column & Block Interactions Sudoku technique example"
+          width="271"
+          height="271"
+        />
+        <p>
+          Another quick example - look at the eighth row down. Only two cells in
+          this row can contain the number 3, and both of these are in the
+          bottom-right block of cells. So we can eliminate 3 as a possibility
+          from other cells in this block.
+        </p>
+        <img
+          src="../assets/strictlysudoku-row-column-hard5.gif"
+          alt="Row/Column & Block Interactions Sudoku technique example"
+          width="271"
+          height="271"
+        />
+        <p>
+          Row/column and block interactions don't always lead straight to an
+          open or hidden single - the last two examples don't. But if the
+          interactions enable us to restrict further the possible values for
+          cells they might still help towards solving the sudoku.
+        </p>
+      </div>
+    </div>
+    <div class="overlay" id="popup">
+      <div class="window">
+        <p class="title" id="popup-title">Congrats</p>
+        <p class="message" id="popup-message"></p>
+        <br />
+        <p>
+          <button id="play-again-button">Play another Sudoku</button>
+        </p>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div>
+          <h3>URLS 1</h3>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+        </div>
+        <div>
+          <h3>URLS 2</h3>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+        </div>
+        <div>
+          <h3>URLS 3</h3>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+          <p>
+            <a href="./">Test url</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script async defer src="../main.js" type="module"></script>
+</html>
