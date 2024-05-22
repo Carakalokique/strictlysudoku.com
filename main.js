@@ -235,13 +235,13 @@ function winGame(win = true) {
         "popup-message"
       ).innerText = `Congrats! You solved this ${difficulty} puzzle in ${secondsToTimeString(
         timeElapsed2
-      )}`;
+      )}.`;
     } else {
       document.getElementById("popup").style.display = "flex";
       document.getElementById("popup-title").innerText = "Game Over";
       document.getElementById(
         "popup-message"
-      ).innerText = `You have made ${maxMistakes} mistakes and lost this game`;
+      ).innerText = `You have made ${maxMistakes} mistakes and lost this game.`;
     }
   });
 }
