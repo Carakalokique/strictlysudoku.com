@@ -1,0 +1,13 @@
+# Allow all web crawlers access to the site
+User-agent: *
+Disallow:
+
+# Allow specific web crawlers access to the entire site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://strictlysudoku.com/sitemap.xml
